@@ -119,6 +119,35 @@
         <text x="910" y="60" >Back</text>
       </g>
 
+      <!-- Room Filter -->
+      <foreignObject x="700" y="90" width="300" height="200">
+        <body xmlns="http://www.w3.org/1999/xhtml">
+            <div class="filter-container">
+                <!-- Filters -->
+                <div class="filter">
+                  <label for="poverty">Poverty Level:</label>
+                  <input type="range" id="poverty" name="poverty" min="0" max="100">
+                  <span id="povertyValue">50</span>
+              </div>
+              <div class="filter">
+                  <label for="education">Education Level:</label>
+                  <input type="range" id="education" name="education" min="0" max="100">
+                  <span id="educationValue">50</span>
+              </div>
+              <div class="filter">
+                  <label for="ownership">Ownership Rate:</label>
+                  <input type="range" id="ownership" name="ownership" min="0" max="100">
+                  <span id="ownershipValue">50</span>
+              </div>
+              <div class="filter">
+                  <label for="income">Income Level:</label>
+                  <input type="range" id="income" name="income" min="0" max="100">
+                  <span id="incomeValue">50</span>
+              </div>
+            </div>
+        </body>
+    </foreignObject>
+
     <!-- Don't delete the closing tag! -->
     </svg>
   </div>
