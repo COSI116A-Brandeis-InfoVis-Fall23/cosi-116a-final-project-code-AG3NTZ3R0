@@ -1,4 +1,4 @@
-var svg = d3.select("#vis-svg");
+var svg = d3.select("#vis-svg-2");
 
 function createBed(x,y,w,h,color,rotation) {
     let g = svg.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)

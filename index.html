@@ -55,7 +55,7 @@
   <div class="vis-holder">
     <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->    
     <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
-    <svg id="vis-svg-2" viewbox="0 0 1000 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg id="vis-svg-1" viewbox="0 0 1000 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g id="multi-family" fill="white" stroke="black" stroke-width="2.5">
         <!-- House -->
         <rect id="house" x="100" y="200" width="800" height="375" />
@@ -80,7 +80,7 @@
       </g>
     </svg>
 
-    <svg id="vis-svg"
+    <svg id="vis-svg-2"
       preserveAspectRatio="xMidYMid meet" viewBox="0 0 1000 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       
       <!-- Basic floorplan view -->
@@ -111,6 +111,12 @@
         <polygon points="790 284.64, 870 284.64, 910 353.93, 870 421.22, 790 421.22, 750 353.93, 790 284.64" />
         <polygon points="800 301.96, 860 301.96, 890 353.93, 860 403.9, 800 403.9, 770 353.93, 800 301.96" />
         <polygon points="810 319.28, 850 319.28, 870 353.93, 850 386.58, 810 386.58, 790 353.93, 810 319.28" />
+      </g>
+
+      <!-- Back button -->
+      <g id="back-button" fill="white" stroke="black" stroke-width="2.5">
+        <rect id="back" x="900" y="30" width="80" height="40" />'
+        <text x="910" y="60" >Back</text>
       </g>
 
     <!-- Don't delete the closing tag! -->
