@@ -72,11 +72,29 @@
         <circle id="door-knob3" cx="630" cy="450" r="5" />
         <circle id="door-knob4" cx="780" cy="450" r="5" />
         <!-- Steps -->
-        <rect id="step1" x="200" y="550" width="100" height="25" />
-        <rect id="step2" x="350" y="550" width="100" height="25" />
-        <rect id="step3" x="550" y="550" width="100" height="25" />
-        <rect id="step4" x="700" y="550" width="100" height="25" />
-
+        <rect id="door-step1" x="200" y="550" width="100" height="25" />
+        <rect id="door-step2" x="350" y="550" width="100" height="25" />
+        <rect id="door-step3" x="550" y="550" width="100" height="25" />
+        <rect id="door-step4" x="700" y="550" width="100" height="25" />
+        <!-- Door Window -->
+        <rect id="door-window1" x="225" y="375" width="50" height="50" />
+        <rect id="door-window2" x="375" y="375" width="50" height="50" />
+        <rect id="door-window3" x="575" y="375" width="50" height="50" />
+        <rect id="door-window4" x="725" y="375" width="50" height="50" />
+        <!-- Door Window Blind -->
+        <rect id="door-window-blind1" x="225" y="375" width="50" height="5" />
+        <rect id="door-window-blind2" x="375" y="375" width="50" height="5" />
+        <rect id="door-window-blind3" x="575" y="375" width="50" height="5" />
+        <rect id="door-window-blind4" x="725" y="375" width="50" height="5" />
+        <!-- Door Sign -->
+        <rect id="door-sign1" x="200" y="300" width="100" height="25" />
+        <text x="210" y="320" >Unit 1</text>
+        <rect id="door-sign2" x="350" y="300" width="100" height="25" />
+        <text x="360" y="320" >Unit 2</text>
+        <rect id="door-sign3" x="550" y="300" width="100" height="25" />
+        <text x="560" y="320" >Unit 3</text>
+        <rect id="door-sign4" x="700" y="300" width="100" height="25" />
+        <text x="710" y="320" >Unit 4</text>
       </g>
     </svg>
 
@@ -112,6 +130,11 @@
         <polygon points="800 301.96, 860 301.96, 890 353.93, 860 403.9, 800 403.9, 770 353.93, 800 301.96" />
         <polygon points="810 319.28, 850 319.28, 870 353.93, 850 386.58, 810 386.58, 790 353.93, 810 319.28" />
       </g>
+
+      <!-- I want a title rectangle which starts at x of 710 which aligns with the top of the floor plan and the butts up agaisnt the back button-->
+      <g id="title" fill="white" stroke="black" stroke-width="2.5">
+          <rect id="vis-svg-2-title" x="710" y="30" width="180" height="40" />
+          <text x="720" y="60" ></text>
 
       <!-- Back button -->
       <g id="back-button" fill="white" stroke="black" stroke-width="2.5">
