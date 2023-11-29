@@ -105,12 +105,33 @@
       </g>
 
       <!-- Hexagon chart -->
-      <g id="hexagon" fill="white" stroke="black" stroke-width="1.5">
-        <polygon points="770 250, 890 250, 950 353.93, 890 455.86, 770 455.86, 710 353.93, 770 250" />
-        <polygon points="780 267.32, 880 267.32, 930 353.93, 880 438.54, 780 438.54, 730 353.93, 780 267.32" />
-        <polygon points="790 284.64, 870 284.64, 910 353.93, 870 421.22, 790 421.22, 750 353.93, 790 284.64" />
-        <polygon points="800 301.96, 860 301.96, 890 353.93, 860 403.9, 800 403.9, 770 353.93, 800 301.96" />
-        <polygon points="810 319.28, 850 319.28, 870 353.93, 850 386.58, 810 386.58, 790 353.93, 810 319.28" />
+      <g id="hexagon-chart">
+        <g id="hexagon" fill="white" stroke="black" stroke-width="1.5" transform="rotate(30,830,353.93)">
+          <polygon points="770 250, 890 250, 950 353.93, 890 455.86, 770 455.86, 710 353.93, 770 250" />
+          <polygon points="780 267.32, 880 267.32, 930 353.93, 880 438.54, 780 438.54, 730 353.93, 780 267.32" />
+          <polygon points="790 284.64, 870 284.64, 910 353.93, 870 421.22, 790 421.22, 750 353.93, 790 284.64" />
+          <polygon points="800 301.96, 860 301.96, 890 353.93, 860 403.9, 800 403.9, 770 353.93, 800 301.96" />
+          <polygon points="810 319.28, 850 319.28, 870 353.93, 850 386.58, 810 386.58, 790 353.93, 810 319.28" />
+          <circle cx="830" cy="353.93" r="1"></circle>
+        </g>
+
+        <g id="hexagon-dimension" font-size="11px">
+          <text x="800" y="225" >Cash Income</text>
+          <text x="675" y="285" >Total Tax</text>
+          <text>
+            <tspan x="940" y="280" >Total</tspan>
+            <tspan x="940" y="295">Subsidies</tspan>
+          </text>
+          <text>
+            <tspan x="675" y="410" >Work</tspan>
+            <tspan x="675" y="425">Expenses</tspan>
+          </text>
+          <text x="800" y="490" >Child Expenses</text>
+          <text>
+            <tspan x="940" y="410" >Medical</tspan>
+            <tspan x="940" y="425">Expenses</tspan>
+          </text>
+        </g>
       </g>
 
       <!-- Back button -->
@@ -211,6 +232,7 @@
   <script src="lib/d3.v4/d3.v4.js"></script>
   <script src="js/visualization.js"></script>
   <script src="js/furniture.js"></script>
+  <script src="js/hexagon.js"></script>
   <script src="js/multifamily.js"></script>
 </body>
 </html>
