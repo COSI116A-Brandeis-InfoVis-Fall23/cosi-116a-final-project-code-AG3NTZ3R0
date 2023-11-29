@@ -129,22 +129,22 @@ labels.forEach(label => {
   floorPlan.addText(hexagonDimension, label.x, label.y, label.text);
 });
 
-// Room Filter
-let filterGroup = floorPlan.addGroup('filter-container', 'none', 'black', '0').attr('transform', 'translate(700, 90)');
-
-// Filter Labels
-const filters = [
-    { label: "Poverty Level:", id: "poverty" },
-    { label: "Education Level:", id: "education" },
-    { label: "Ownership Rate:", id: "ownership" },
-    { label: "Income Level:", id: "income" }
-];
-
-filters.forEach((filter, index) => {
-    let yOffset = index * 30;
-    floorPlan.addText(filterGroup, `${filter.id}-label`, 0, yOffset + 15, filter.label);
-    floorPlan.addRect(filterGroup, `${filter.id}-track`, 120, yOffset + 5, 100, 2, 'grey');
-    floorPlan.addCircle(filterGroup, `${filter.id}-handle`, 135, yOffset + 6, 5, 'blue');
-    floorPlan.addText(filterGroup, `${filter.id}Value`, 230, yOffset + 15, '50');
-});
-
+// // Room Filter
+// let filterGroup = floorPlan.addGroup('filter-container', 'none', 'black', '0').attr('transform', 'translate(700, 90)');
+//
+// // Filter Labels
+// const filters = [
+//     { label: "Poverty Level:", id: "poverty" },
+//     { label: "Education Level:", id: "education" },
+//     { label: "Ownership Rate:", id: "ownership" },
+//     { label: "Income Level:", id: "income" }
+// ];
+//
+// filters.forEach((filter, index) => {
+//     let yOffset = index * 30;
+//     floorPlan.addText(filterGroup, `${filter.id}-label`, 0, yOffset + 15, filter.label);
+//     floorPlan.addRect(filterGroup, `${filter.id}-track`, 120, yOffset + 5, 100, 2, 'grey');
+//     floorPlan.addCircle(filterGroup, `${filter.id}-handle`, 135, yOffset + 6, 5, 'blue');
+//     floorPlan.addText(filterGroup, `${filter.id}Value`, 230, yOffset + 15, '50');
+// });
+//
