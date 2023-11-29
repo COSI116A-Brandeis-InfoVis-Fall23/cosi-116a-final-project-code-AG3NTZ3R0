@@ -67,7 +67,8 @@ function generateHexagon(cashIncome, totalTax, totalSubsidies, workExpenses, chi
     p5 = generateVertex("Work Expenses", workExpenses);
     p6 = generateVertex("Total Tax", totalTax);
 
-    d3.select("#vis-svg-2").select("#hexagon-chart").append("polygon")
+
+    d3.select("#hexagon").append("polygon")
     .attr("points", `${p1.x} ${p1.y}, ${p2.x} ${p2.y}, ${p3.x} ${p3.y}, ${p4.x} ${p4.y}, ${p5.x} ${p5.y}, ${p6.x} ${p6.y}, ${p1.x} ${p1.y}`)
     .attr("transform", "rotate(30,830,353.93)")
     .attr("fill", "green").attr("opacity", 0.6)
