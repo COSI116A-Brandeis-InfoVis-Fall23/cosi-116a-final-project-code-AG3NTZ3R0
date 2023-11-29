@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Metadata -->
 <head>
   <meta charset="utf-8">
-  
-  <!-- Title -->
   <title>Graduate Group 4: Topic, COSI 116A F23</title>
-  
-  <!-- CSS Styling -->
   <link rel="stylesheet" href="style.css">
- 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
@@ -22,187 +15,83 @@
   <meta name="theme-color" content="#ffffff">
 </head>
 
-<!-- Main page content -->
 <body>
-
-  <!-- Update this with your GitHub repo URL -->
-  <span id="forkongithub"><a href="https://github.com/COSI116A-Brandeis-InfoVis-Fall23/cosi-116a-final-project-code-AG3NTZ3R0.git">Fork me on GitHub</a></span>
+  <span id="forkongithub">
+    <a href="https://github.com/COSI116A-Brandeis-InfoVis-Fall23/cosi-116a-final-project-code-AG3NTZ3R0.git">Fork me on GitHub</a>
+  </span>
 
   <!-- Your writeup goes here -->
   <div class = "content-column">
-  
     <h1>Graduate Group 4: Topic, COSI 116A F23</h1>
-    
-    <p><strong>Brandon Lacy</strong>, <strong>Wantong Lin</strong>, <strong>Christine Nguyen</strong>, <strong>Kaiyu Peng</strong></p>
-    
-    <p>Project-long Course Project as part of COSI 116A: Information Visualization</a>, taught by <a href="https://cs.brandeis.edu/~dylan/">Prof. Dylan Cashman</a>, <a href="https://cs.brandeis.edu/">Brandeis University</a>.</p>
-    
-    
+    <p>
+      <strong>Brandon Lacy</strong>,
+      <strong>Wantong Lin</strong>,
+      <strong>Christine Nguyen</strong>,
+      <strong>Kaiyu Peng</strong>
+    </p>
+    <p>Project-long Course Project as part of COSI 116A: Information Visualization, taught by <a href="https://cs.brandeis.edu/~dylan/">Prof. Dylan Cashman</a>, <a href="https://cs.brandeis.edu/">Brandeis University</a>.</p>
+
     <h1>Motivation</h1>
-    
     <p><em>Summary of user needs and motivating questions.</em></p>
-    
     <p><em>Expectation: There is a clear focus, and a developed explanation of the problem, and a reasonable response is proposed.</em></p>
 
-    
     <h1>Visualization</h1>
-    
     <p><em>Include the interactive visualization as part of this page. Static example follows.</em></p>
-    
   </div>
-  
+
   <!-- Your visualization here -->
   <div class="vis-holder">
-    <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->    
-    <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
-    <svg id="vis-svg-1" viewbox="0 0 1000 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <g id="multi-family" fill="white" stroke="black" stroke-width="2.5">
-        <!-- House -->
-        <rect id="house" x="100" y="200" width="800" height="375" />
-        <!-- Roof -->
-        <polygon id="roof" points="100,200 500,50 900,200" />
-        <!-- Doors -->
-        <rect id="door1" x="200" y="350" width="100" height="200" />
-        <rect id="door2" x="350" y="350" width="100" height="200" />
-        <rect id="door3" x="550" y="350" width="100" height="200" />
-        <rect id="door4" x="700" y="350" width="100" height="200" />
-        <!-- Door Knobs -->
-        <circle id="door-knob1" cx="280" cy="450" r="5" />
-        <circle id="door-knob2" cx="430" cy="450" r="5" />
-        <circle id="door-knob3" cx="630" cy="450" r="5" />
-        <circle id="door-knob4" cx="780" cy="450" r="5" />
-        <!-- Steps -->
-        <rect id="door-step1" x="200" y="550" width="100" height="25" />
-        <rect id="door-step2" x="350" y="550" width="100" height="25" />
-        <rect id="door-step3" x="550" y="550" width="100" height="25" />
-        <rect id="door-step4" x="700" y="550" width="100" height="25" />
-        <!-- Door Window -->
-        <rect id="door-window1" x="225" y="375" width="50" height="50" />
-        <rect id="door-window2" x="375" y="375" width="50" height="50" />
-        <rect id="door-window3" x="575" y="375" width="50" height="50" />
-        <rect id="door-window4" x="725" y="375" width="50" height="50" />
-        <!-- Door Window Blind -->
-        <rect id="door-window-blind1" x="225" y="375" width="50" height="5" />
-        <rect id="door-window-blind2" x="375" y="375" width="50" height="5" />
-        <rect id="door-window-blind3" x="575" y="375" width="50" height="5" />
-        <rect id="door-window-blind4" x="725" y="375" width="50" height="5" />
-        <!-- Door Sign -->
-        <rect id="door-sign1" x="200" y="300" width="100" height="25" />
-        <text x="210" y="320" >Unit 1</text>
-        <rect id="door-sign2" x="350" y="300" width="100" height="25" />
-        <text x="360" y="320" >Unit 2</text>
-        <rect id="door-sign3" x="550" y="300" width="100" height="25" />
-        <text x="560" y="320" >Unit 3</text>
-        <rect id="door-sign4" x="700" y="300" width="100" height="25" />
-        <text x="710" y="320" >Unit 4</text>
-      </g>
-    </svg>
+<!--    <svg id="vis-svg-2"-->
+<!--      preserveAspectRatio="xMidYMid meet" viewBox="0 0 1000 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">-->
 
-    <svg id="vis-svg-2"
-      preserveAspectRatio="xMidYMid meet" viewBox="0 0 1000 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      
-      <!-- Basic floorplan view -->
-      <g id="basic-floorplan" fill="white" stroke="black" stroke-width="2.5">
-        <rect x="50" y="30" width="600" height="400" />
-        <!-- Bedrooms -->
-        <rect id="bedroom1" x="50" y="30" width="180" height="160" />
-        <rect id="bedroom2" x="50" y="270" width="140" height="160" />
-        <rect id="bedroom3" x="180" y="270" width="140" height="160" />
-        <!-- Closets and Bathrooms -->
-        <rect id="closet1" x="230" y="30" width="50" height="80" />
-        <rect id="bathroom1" x="280" y="30" width="90" height="80" />
-        <rect id="bathroom2" x="230" y="110" width="90" height="80" />
-        <rect id="closet2" x="50" y="230" width="60" height="40" />
-        <!-- Kitchen -->
-        <rect id="kitchen" x="550" y="150" width="100" height="150" />
-        <!-- Balcony -->
-        <rect id="balcony" x="350" y="430" width="140" height="60" />
-        <!-- W/D and Closet -->
-        <rect id="w/d" x="550" y="30" width="60" height="30" />
-        <rect id="closet" x="610" y="30" width="40" height="90" />
-      </g>
+<!--      <g id="title" fill="white" stroke="black" stroke-width="2.5">-->
+<!--          <rect id="vis-svg-2-title" x="710" y="30" width="180" height="40" />-->
+<!--          <text x="720" y="60" ></text>-->
+<!--      </g>-->
 
-      <!-- Hexagon chart -->
-      <g id="hexagon-chart">
-        <g id="hexagon" fill="white" stroke="black" stroke-width="1.5" transform="rotate(30,830,353.93)">
-          <polygon points="770 250, 890 250, 950 353.93, 890 455.86, 770 455.86, 710 353.93, 770 250" />
-          <polygon points="780 267.32, 880 267.32, 930 353.93, 880 438.54, 780 438.54, 730 353.93, 780 267.32" />
-          <polygon points="790 284.64, 870 284.64, 910 353.93, 870 421.22, 790 421.22, 750 353.93, 790 284.64" />
-          <polygon points="800 301.96, 860 301.96, 890 353.93, 860 403.9, 800 403.9, 770 353.93, 800 301.96" />
-          <polygon points="810 319.28, 850 319.28, 870 353.93, 850 386.58, 810 386.58, 790 353.93, 810 319.28" />
-          <circle cx="830" cy="353.93" r="1"></circle>
-        </g>
+<!--      &lt;!&ndash; Back button &ndash;&gt;-->
+<!--      <g id="back-button" fill="white" stroke="black" stroke-width="2.5">-->
+<!--        <rect id="back" x="900" y="30" width="80" height="40" />'-->
+<!--        <text x="910" y="60" >Back</text>-->
+<!--      </g>-->
 
-        <g id="hexagon-dimension" font-size="11px">
-          <text x="800" y="225" >Cash Income</text>
-          <text x="675" y="285" >Total Tax</text>
-          <text>
-            <tspan x="940" y="280" >Total</tspan>
-            <tspan x="940" y="295">Subsidies</tspan>
-          </text>
-          <text>
-            <tspan x="675" y="410" >Work</tspan>
-            <tspan x="675" y="425">Expenses</tspan>
-          </text>
-          <text x="800" y="490" >Child Expenses</text>
-          <text>
-            <tspan x="940" y="410" >Medical</tspan>
-            <tspan x="940" y="425">Expenses</tspan>
-          </text>
-        </g>
-      </g>
+<!--      &lt;!&ndash; Room Filter &ndash;&gt;-->
+<!--      <foreignObject x="700" y="90" width="300" height="200">-->
+<!--        <body xmlns="http://www.w3.org/1999/xhtml">-->
+<!--            <div class="filter-container">-->
+<!--                &lt;!&ndash; Filters &ndash;&gt;-->
+<!--                <div class="filter">-->
+<!--                  <label for="poverty">Poverty Level:</label>-->
+<!--                  <input type="range" id="poverty" name="poverty" min="0" max="100">-->
+<!--                  <span id="povertyValue">50</span>-->
+<!--              </div>-->
+<!--              <div class="filter">-->
+<!--                  <label for="education">Education Level:</label>-->
+<!--                  <input type="range" id="education" name="education" min="0" max="100">-->
+<!--                  <span id="educationValue">50</span>-->
+<!--              </div>-->
+<!--              <div class="filter">-->
+<!--                  <label for="ownership">Ownership Rate:</label>-->
+<!--                  <input type="range" id="ownership" name="ownership" min="0" max="100">-->
+<!--                  <span id="ownershipValue">50</span>-->
+<!--              </div>-->
+<!--              <div class="filter">-->
+<!--                  <label for="income">Income Level:</label>-->
+<!--                  <input type="range" id="income" name="income" min="0" max="100">-->
+<!--                  <span id="incomeValue">50</span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--        </body>-->
+<!--    </foreignObject>-->
 
-      <!-- I want a title rectangle which starts at x of 710 which aligns with the top of the floor plan and the butts up agaisnt the back button-->
-      <g id="title" fill="white" stroke="black" stroke-width="2.5">
-          <rect id="vis-svg-2-title" x="710" y="30" width="180" height="40" />
-          <text x="720" y="60" ></text>
-
-      <!-- Back button -->
-      <g id="back-button" fill="white" stroke="black" stroke-width="2.5">
-        <rect id="back" x="900" y="30" width="80" height="40" />'
-        <text x="910" y="60" >Back</text>
-      </g>
-
-      <!-- Room Filter -->
-      <foreignObject x="700" y="90" width="300" height="200">
-        <body xmlns="http://www.w3.org/1999/xhtml">
-            <div class="filter-container">
-                <!-- Filters -->
-                <div class="filter">
-                  <label for="poverty">Poverty Level:</label>
-                  <input type="range" id="poverty" name="poverty" min="0" max="100">
-                  <span id="povertyValue">50</span>
-              </div>
-              <div class="filter">
-                  <label for="education">Education Level:</label>
-                  <input type="range" id="education" name="education" min="0" max="100">
-                  <span id="educationValue">50</span>
-              </div>
-              <div class="filter">
-                  <label for="ownership">Ownership Rate:</label>
-                  <input type="range" id="ownership" name="ownership" min="0" max="100">
-                  <span id="ownershipValue">50</span>
-              </div>
-              <div class="filter">
-                  <label for="income">Income Level:</label>
-                  <input type="range" id="income" name="income" min="0" max="100">
-                  <span id="incomeValue">50</span>
-              </div>
-            </div>
-        </body>
-    </foreignObject>
-
-    <!-- Don't delete the closing tag! -->
-    </svg>
+<!--    &lt;!&ndash; Don't delete the closing tag! &ndash;&gt;-->
+<!--    </svg>-->
   </div>
-  
+
   <!-- Your writeup goes here -->
   <div class = "content-column">
-
     <h1>Demo Video</h1>
-    
     <p><em>Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:</em></p>
-    
     <video controls width="100%">
       <source src="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4" type="video/mp4">
       <p>Your browser doesn't support HTML5 video. Here is
@@ -210,47 +99,35 @@
     </video>
 
     <h1>Visualization explanation</h1>
-    
     <p><em>Final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.</em></p>
 
     <h1>Data Analysis</h1>
     <p><em>Summary of data, data types, and data preprocessing.</em></p>
-
     <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.</em></p>
 
     <h1>Task Analysis</h1>
-
     <p><em>Summary of task table.</em></p>
-
     <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em></p>
 
     <h1>Design Process</h1>
-    
     <p><em>Sketches and design choices to justify final visualization.</em></p>
-
     <p><em>Expectation: Evidence of iterative improvement.
     Logical discussion of design choices grounded in theory from course.
     Discusses feedback from usability testing.</em></p>
 
 
     <h1>Conclusion</h1>
-
     <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
-    
     <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
 
-    
     <h1>Acknowledgments</h1>
-
     <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em></p>
-    
     <ul>
       <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
       <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub" ribbon</a> by Chris Heilmann.</li>
     </ul>
-    
   </div>
-  
+
   <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
   <script src="lib/d3.v4/d3.v4.js"></script>
   <script src="js/visualization.js"></script>
