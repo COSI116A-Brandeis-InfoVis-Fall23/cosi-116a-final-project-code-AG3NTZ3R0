@@ -47,6 +47,151 @@ class SVGChart {
       .attr('y', y)
       .text(text);
   }
+  
+  // modified createFurniture method to accept furniture data
+  createFurniture(furnitureData) {
+	// Clear previous furniture
+	const svg = this.svg;
+	svg.selectAll(".furniture").remove() 
+	  
+	// Scale furniture size
+	const scaleFactor = 0.01;
+	
+	// Get canvas size
+    const canvasWidth = 500;
+    const canvasHeight = 500;
+	console.log(`Viz size: x=${canvasWidth}, y=${canvasHeight}`);
+	
+	/*// Reference to furniture group
+	const furnitureGroup = svg.append('g').classed('furniture', true);
+	*/
+	
+	// Method to make sure that furniture does not overlap
+	const hasOverlap = (x, y, width, height) => {
+	  const existingFurniture = svg.selectAll(".furniture"); 
+
+      let overlap = false;
+
+      existingFurniture.each(function () {
+        const existingX = +d3.select(this).attr("x");
+        const existingY = +d3.select(this).attr("y");
+        const existingWidth = +d3.select(this).attr("furnitureWidth");
+        const existingHeight = +d3.select(this).attr("furnitureHeight");
+
+        // Check for overlap
+        if (
+          x < existingX + existingWidth &&
+          x + width > existingX &&
+          y < existingY + existingHeight &&
+          y + height > existingY
+        ) {
+          overlap = true;
+        }
+      });
+
+      return overlap;
+    };
+	
+	
+	// Iterate over each item in the furniture data
+	furnitureData.forEach(({position, attributes}) => {
+		// Print statement for debugging purposes
+		console.log('Processing furniture item:', position, attributes);
+        
+		let x = position.x;
+		let y = position.y;
+		const furnitureWidth = position.width;
+		const furnitureHeight = position.height;
+		const furnitureRot = position.rotation;
+
+
+		// const color = item.color;
+	
+		// Check for overlap, adjust coordinates if needed
+		while (
+		  hasOverlap(x, y, furnitureWidth, furnitureWidth) ||
+		  x < 0 ||
+		  y < 0 ||
+		  x + furnitureWidth > canvasWidth ||
+		  y + furnitureWidth > canvasHeight
+		) {
+		  // Print positions for debugging purposes
+		  console.log(`Current position: x=${x}, y=${y}`);
+
+		  // If the furniture goes beyond the right or bottom edge, adjust its position
+		  if (x + furnitureWidth > canvasWidth) {
+			x = canvasWidth - furnitureWidth;
+		  }
+		  if (y + furnitureHeight > canvasHeight) {
+			y = canvasHeight - furnitureHeight;
+		  }
+
+		  // If the furniture goes beyond the left or top edge, adjust its position
+		  if (x < 0) {
+			x = 0;
+		  }
+		  if (y < 0) {
+			y = 0;
+		  }
+
+		  // Check for overlap after adjustments
+		  if (hasOverlap(x, y, furnitureWidth, furnitureHeight)) {
+			// Adjust the position incrementally
+			x += 10;
+			y += 10;
+		  }
+
+		  // Prevent infinite loop if repositioning doesn't help
+		  if (x > canvasWidth || y > canvasHeight) {
+		    console.error("Cannot position furniture within canvas boundaries.");
+		    break;
+		  }
+		}
+		
+		// Access attributes specific to each furniture item
+		const {
+			spmTotalValue,
+			spmSnapSub,
+            spmCapHouseSub,
+			spmSchLunch,
+            spmEngVal,
+            spmWICVal,
+            spmFica,
+            spmFedTax,
+            spmStTax,
+            spmCapWkCCXpns,
+            spmMedXpns,
+		} = attributes;
+		
+		const bed = spmTotalValue * scaleFactor;
+		const bathtub = spmSnapSub * scaleFactor;
+		const dining = spmCapHouseSub * scaleFactor;
+		const couch1 = spmSchLunch * scaleFactor;
+		const rect1 = spmEngVal * scaleFactor;
+		const rect2 = spmWICVal * scaleFactor;
+		const rect3 = spmFica * scaleFactor;
+		const couch2 = spmFedTax * scaleFactor;
+		const couch3 = spmStTax * scaleFactor;
+		const circle1 = spmCapWkCCXpns * scaleFactor;
+		const circle2 = spmMedXpns * scaleFactor;
+		
+		// Create furniture based on given values
+		createBed(x, y, bed, bed, spmTotalValue >= 0 ? "green" : "red", 0);
+		createBathtub(x, y, bathtub, bathtub, spmSnapSub >= 0 ? "orange" : "grey", 0);
+		createDiningTable(x, y, dining, dining, spmCapHouseSub >= 0 ? "orange" : "grey", 0);
+		createCouch(x, y, couch1, couch1, spmSchLunch >= 0 ? "orange" : "grey", 0);
+		createRect(x, y, rect1, rect1, spmEngVal >= 0 ? "orange" : "grey", 0);
+		createRect(x, y, rect2, rect2, spmWICVal >= 0 ? "orange" : "grey", 0);
+		createRect(x, y, rect3, rect3, spmFica >= 0 ? "green" : "red", 0);
+		createCouch(x, y, couch2, couch2, spmFedTax >= 0 ? "red" : "grey", 0);
+		createCouch(x, y, couch3, couch3, spmStTax >= 0 ? "red" : "grey", 0);
+		createCircle(x, y, circle1, circle1, spmCapWkCCXpns >= 0 ? "red" : "grey");
+		createCircle(x, y, circle2, circle2 >= 0 ? "red" : "grey");
+		
+		// Print statement for debugging purposes
+		console.log('Furniture items created successfully.');
+	});
+  }
 }
 
 // Multi-Family Home Visualization
@@ -93,6 +238,34 @@ floorPlan.addRect(basicFloorPlan, 'balcony', 350, 430, 140, 60);
 // Washer/Dryer and Closet
 floorPlan.addRect(basicFloorPlan, 'w/d', 550, 30, 60, 30);
 floorPlan.addRect(basicFloorPlan, 'closet', 610, 30, 40, 90);
+
+/* Define furniture data for different racial categories
+format = [position={x, y}, attributes={spmTotalValue, spmSnapSub, 
+spmCapHouseSub, spmSchLunch, spmEngVal, spmWICVal, spmFica, spmFedTax,
+ spmStTax, spmCapWkCCXpns, spmMedXpns}]
+ */
+const furnitureDataAsian = [
+	{position: {x: 70, y: 30, width: 10, height: 10, rotation: 0},
+	attributes: {spmTotalValue: 151067, spmSnapSub: 420, spmCapHouseSub: 137, spmSchLunch: 310, spmEngVal: 19, spmWICVal: 10, spmFica: 9022, spmFedTax: 16321, spmStTax: 5829, spmCapWkCCXpns: 3617, spmMedXpns: 6275}
+	}];
+const furnitureDataBlack =  [
+	{position: {x: 70, y: 30, width: 10, height: 10, rotation: 0}, 
+	attributes: {spmTotalValue: 75492, spmSnapSub: 1132, spmCapHouseSub: 509, spmSchLunch: 362, spmEngVal: 37, spmWICVal: 29, spmFica: 4417, spmFedTax: 148, spmStTax: 1936, spmCapWkCCXpns: 2491, spmMedXpns: 4237}
+	}];
+const furnitureDataOther =  [
+	{position: {x: 70, y: 30, width: 10, height: 10, rotation: 0},
+	attributes: {spmTotalValue: 95906, spmSnapSub: 820, spmCapHouseSub: 279,	spmSchLunch: 487, spmEngVal: 25, spmWICVal: 28, spmFica: 6106, spmFedTax: 1667, spmStTax: 2410, spmCapWkCCXpns: 3274, spmMedXpns: 4621}
+	}];
+const furnitureDataWhite = [
+	{position: {x: 70, y: 30, width: 10, height: 10, rotation: 0},
+	attributes: {spmTotalValue: 115321, spmSnapSub: 319, spmCapHouseSub: 63,	spmSchLunch: 299, spmEngVal: 17, spmWICVal: 10, spmFica: 6361, spmFedTax: 9653, spmStTax: 3595, spmCapWkCCXpns: 9653, spmMedXpns: 3595}
+	}];
+
+// Call createFurniture for each racial category
+floorPlan.createFurniture(furnitureDataAsian);
+floorPlan.createFurniture(furnitureDataBlack);
+floorPlan.createFurniture(furnitureDataOther);
+floorPlan.createFurniture(furnitureDataWhite);
 
 // Hexagon Visualization
 let hexagonDimension = floorPlan.addGroup('hexagon-dimension', 'none', 'black', '1').attr('font-size', '11px');
