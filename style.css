@@ -21,6 +21,23 @@ h1, h2, h3 {
   height: 100%;
 }
 
+
+/* CSS for buttons */
+#filterButtons button {
+	padding: 30px 45px; 
+	font-size: 30px; 
+	background-color: #4CAF50;
+	color: white; 
+	border: none;
+	border-radius: 5px; 
+	cursor: pointer; 
+	margin-left: 365px;
+  }
+  
+#filterButtons button:hover {
+	background-color: #45a049; 
+}
+
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
 #forkongithub a{
 	background:#00F;
