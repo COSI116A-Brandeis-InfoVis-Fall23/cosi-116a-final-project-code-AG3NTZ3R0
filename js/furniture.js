@@ -1,7 +1,7 @@
-var svg = d3.select("#vis-svg-2");
+// var svg = d3.select("#vis-svg-2");
 
-function createBed(x,y,w,h,color,rotation) {
-    let g = svg.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
+function createBed(svgGroup,x,y,w,h,color,rotation) {
+    let g = svgGroup.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
     // bedsheet
     g.append("rect").attr("x", x).attr("y", y).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h).style("opacity", 0.4)
     // pillow (size:30*15)
@@ -10,14 +10,14 @@ function createBed(x,y,w,h,color,rotation) {
     g.append("rect").attr("x", x).attr("y", y+25).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h-25).style("opacity", 0.4)
 }
 
-function createBathtub(x,y,w,h,color) {
-    let g = svg.append("g").attr("fill", `${color}`)
+function createBathtub(svgGroup,x,y,w,h,color) {
+    let g = svgGroup.append("g").attr("fill", `${color}`)
     g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).style("opacity", 0.5)
     g.append("rect").attr("x", x+w/12).attr("y", y+h/8).attr("rx", 4).attr("ry", 4).attr("width", w-w/6).attr("height", h-h/4).style("opacity", 0.5)
 }
 
-function createDiningTable(x,y,w,h,color,rotation) {
-    let g = svg.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
+function createDiningTable(svgGroup,x,y,w,h,color,rotation) {
+    let g = svgGroup.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
     // table
     g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).style("opacity", 0.7)
     // chairs (size:20*15)
@@ -27,21 +27,21 @@ function createDiningTable(x,y,w,h,color,rotation) {
     g.append("rect").attr("x", x+2*(w-40)/3+20).attr("y", y+h).attr("width", 20).attr("height", 15).style("opacity", 0.6)
 }
 
-function createCouch(x,y,w,h,color,rotation) {
-    let g = svg.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
+function createCouch(svgGroup,x,y,w,h,color,rotation) {
+    let g = svgGroup.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
     g.append("rect").attr("x", x).attr("y", y).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h).style("opacity", 0.4)
     g.append("rect").attr("x", x).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", w).attr("height", 0.4*h).style("opacity", 0.5)
     g.append("rect").attr("x", x).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", 0.3*w).attr("height", h).style("opacity", 0.5)
     g.append("rect").attr("x", x+0.7*w).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", 0.3*w).attr("height", h).style("opacity", 0.5)
 }
 
-function createRect(x,y,w,h,color,rotation) {
-    svg.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
+function createRect(svgGroup,x,y,w,h,color,rotation) {
+    svgGroup.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).attr("transform", `rotate(${rotation}, ${x+w/2}, ${y+h/2})`)
     .style("fill", `${color}`).style("opacity", 0.6)
 }
 
-function createCircle(x,y,r,color) {
-    svg.append("circle").attr("cx", x).attr("cy", y).attr("r", r).style("fill", `${color}`).style("opacity", 0.6)
+function createCircle(svgGroup,x,y,r,color) {
+    svgGroup.append("circle").attr("cx", x).attr("cy", y).attr("r", r).style("fill", `${color}`).style("opacity", 0.6)
 }
 
 // Un-comment code below to create sample furniture

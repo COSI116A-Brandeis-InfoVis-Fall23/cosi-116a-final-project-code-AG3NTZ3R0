@@ -95,6 +95,10 @@ h1, h2, h3 {
 	}
 }
 
+/* Make the doors in MultiFamily svg clickable */
+#vis-svg-1 {
+    pointer-events: all;
+}
 /* Hide the SVG */
 #vis-svg-2 {
 	display: none;
