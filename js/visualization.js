@@ -47,23 +47,39 @@ class SVGChart {
       .attr('y', y)
       .text(text);
   }
+
+    addPath(group, id, d) {
+        return group.append('path')
+        .attr('id', id)
+        .attr('d', d);
+    }
 }
 
 // Multi-Family Home Visualization
 let multiFamilyHome = new SVGChart('.vis-holder', 'vis-svg-1', '0 0 1000 600');
 let g = multiFamilyHome.addGroup('multi-family', 'white', 'black', '2.5');
-multiFamilyHome.addRect(g, 'house', 100, 200, 800, 375);
-multiFamilyHome.addPolygon(g, 'roof', '100,200 500,50 900,200');
+
+// Add main house
+multiFamilyHome.addRect(g, 'house', 100, 200, 800, 375).attr('fill', 'lightgrey');
+// Add roof
+multiFamilyHome.addPolygon(g, 'roof', '100,200 500,50 900,200').attr('fill', 'darkgrey');
+
+// Add chimney
+multiFamilyHome.addRect(g, 'chimney', 700, 100, 100, 100).attr('fill', 'darkred');
+// Add smoke cloud
+let smokeCloud = "M 750 80 Q 760 70 770 80 T 790 80 T 810 80 T 830 80";
+multiFamilyHome.addPath(g, 'smoke-cloud', smokeCloud).attr('fill', 'lightgrey');
+
 
 // Add doors, knobs, steps, door windows, blinds, and signs
 for (let i = 0; i < 4; i++) {
-  multiFamilyHome.addRect(g, `door${i+1}`, 200 + 150 * i, 350, 100, 225);
-  multiFamilyHome.addCircle(g, `door-knob${i+1}`, 280 + 150 * i, 450, 5);
-  multiFamilyHome.addRect(g, `door-step${i+1}`, 200 + 150 * i, 550, 100, 25);
-  multiFamilyHome.addRect(g, `door-window${i+1}`, 225 + 150 * i, 375, 50, 50);
-  multiFamilyHome.addRect(g, `door-window-blind${i+1}`, 225 + 150 * i, 375, 50, 5);
-  multiFamilyHome.addRect(g, `door-sign${i+1}`, 200 + 150 * i, 300, 100, 25);
-  multiFamilyHome.addText(g, 210 + 150 * i, 320, `Unit ${i+1}`);
+  multiFamilyHome.addRect(g, `door${i+1}`, 220 + 150 * i, 350, 100, 225).attr('fill', 'brown');
+  multiFamilyHome.addCircle(g, `door-knob${i+1}`, 300 + 150 * i, 450, 5).attr('fill', 'gold');
+  multiFamilyHome.addRect(g, `door-step${i+1}`, 220 + 150 * i, 550, 100, 25).attr('fill', 'darkgrey');
+  multiFamilyHome.addRect(g, `door-window${i+1}`, 245 + 150 * i, 375, 50, 50).attr('fill', 'lightblue');
+  multiFamilyHome.addRect(g, `door-window-blind${i+1}`, 245 + 150 * i, 375, 50, 5).attr('fill', 'white');
+  multiFamilyHome.addRect(g, `door-sign${i+1}`, 220 + 150 * i, 300, 100, 25).attr('fill', 'white');
+  multiFamilyHome.addText(g, 230 + 150 * i, 320, `Unit ${i+1}`);
 }
 
 // Floor Plan Visualization
