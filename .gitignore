@@ -1,2 +1,5 @@
 # PyCharm IDE
 .idea
+
+# VS Code IDE
+.vscode
