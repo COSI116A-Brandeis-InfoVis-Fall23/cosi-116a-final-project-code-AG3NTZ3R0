@@ -15,43 +15,49 @@ class SVGChart {
       .attr('id', id)
       .attr('fill', fill)
       .attr('stroke', stroke)
-      .attr('stroke-width', strokeWidth);
+      .attr('stroke-width', strokeWidth)
   }
 
-  addRect(group, id, x, y, width, height) {
+  addRect(group, id, x, y, width, height, fill) {
     return group.append('rect')
       .attr('id', id)
       .attr('x', x)
       .attr('y', y)
       .attr('width', width)
-      .attr('height', height);
+      .attr('height', height)
+      .attr('fill', fill);
   }
 
-  addPolygon(group, id, points) {
+  addPolygon(group, id, points, fill) {
     return group.append('polygon')
       .attr('id', id)
-      .attr('points', points);
+      .attr('points', points)
+      .attr('fill', fill);
   }
 
-  addCircle(group, id, cx, cy, r) {
+  addCircle(group, id, cx, cy, r, fill) {
     return group.append('circle')
       .attr('id', id)
       .attr('cx', cx)
       .attr('cy', cy)
-      .attr('r', r);
+      .attr('r', r)
+      .attr('fill', fill);
   }
 
-  addText(group, x, y, text) {
+  addText(group, x, y, text, font_size, fill, text_anchor) {
     return group.append('text')
       .attr('x', x)
       .attr('y', y)
-      .text(text);
+      .text(text)
+      .attr('font-size', font_size)
+      .attr('fill', fill);
   }
 
-    addPath(group, id, d) {
+    addPath(group, id, d, fill) {
         return group.append('path')
         .attr('id', id)
-        .attr('d', d);
+        .attr('d', d)
+        .attr('fill', fill);
     }
 }
 
@@ -60,26 +66,28 @@ let multiFamilyHome = new SVGChart('.vis-holder', 'vis-svg-1', '0 0 1000 600');
 let g = multiFamilyHome.addGroup('multi-family', 'white', 'black', '2.5');
 
 // Add main house
-multiFamilyHome.addRect(g, 'house', 100, 200, 800, 375).attr('fill', 'lightgrey');
+multiFamilyHome.addRect(g, 'house', 100, 200, 800, 375, 'lightgrey');
 // Add roof
-multiFamilyHome.addPolygon(g, 'roof', '100,200 500,50 900,200').attr('fill', 'darkgrey');
+multiFamilyHome.addPolygon(g, 'roof', '100,200 500,50 900,200', 'darkgrey');
 
 // Add chimney
-multiFamilyHome.addRect(g, 'chimney', 700, 100, 100, 100).attr('fill', 'darkred');
+multiFamilyHome.addRect(g, 'chimney', 700, 100, 100, 100, 'darkred');
 // Add smoke cloud
 let smokeCloud = "M 750 80 Q 760 70 770 80 T 790 80 T 810 80 T 830 80";
-multiFamilyHome.addPath(g, 'smoke-cloud', smokeCloud).attr('fill', 'lightgrey');
+multiFamilyHome.addPath(g, 'smoke-cloud', smokeCloud, 'lightgrey');
 
+// Define the racial categories
+const racialCategories = ["White", "Black", "Asian", "Other"];
 
 // Add doors, knobs, steps, door windows, blinds, and signs
 for (let i = 0; i < 4; i++) {
-  multiFamilyHome.addRect(g, `door${i+1}`, 220 + 150 * i, 350, 100, 225).attr('fill', 'brown');
-  multiFamilyHome.addCircle(g, `door-knob${i+1}`, 300 + 150 * i, 450, 5).attr('fill', 'gold');
-  multiFamilyHome.addRect(g, `door-step${i+1}`, 220 + 150 * i, 550, 100, 25).attr('fill', 'darkgrey');
-  multiFamilyHome.addRect(g, `door-window${i+1}`, 245 + 150 * i, 375, 50, 50).attr('fill', 'lightblue');
-  multiFamilyHome.addRect(g, `door-window-blind${i+1}`, 245 + 150 * i, 375, 50, 5).attr('fill', 'white');
-  multiFamilyHome.addRect(g, `door-sign${i+1}`, 220 + 150 * i, 300, 100, 25).attr('fill', 'white');
-  multiFamilyHome.addText(g, 230 + 150 * i, 320, `Unit ${i+1}`);
+  multiFamilyHome.addRect(g, `door${i+1}`, 220 + 150 * i, 350, 100, 225, 'brown');
+  multiFamilyHome.addCircle(g, `door-knob${i+1}`, 300 + 150 * i, 450, 5, 'gold');
+  multiFamilyHome.addRect(g, `door-step${i+1}`, 220 + 150 * i, 550, 100, 25, 'darkgrey');
+  multiFamilyHome.addRect(g, `door-window${i+1}`, 245 + 150 * i, 375, 50, 50, 'lightblue');
+  multiFamilyHome.addRect(g, `door-window-blind${i+1}`, 245 + 150 * i, 375, 50, 5, 'white');
+  multiFamilyHome.addRect(g, `door-sign${i+1}`, 220 + 150 * i, 300, 100, 25, 'white');
+  multiFamilyHome.addText(g, 245 + 150 * i, 320, racialCategories[i], '20px', 'black');
 }
 
 // Floor Plan Visualization

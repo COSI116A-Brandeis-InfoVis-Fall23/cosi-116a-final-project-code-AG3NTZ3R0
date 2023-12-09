@@ -60,12 +60,12 @@
         });
     }
 
-    d3.csv("data/SPM_Resources_Avgs_by_Race.csv", function(error, data) {
-    if (error) {
-        console.log(error);
-    } else {
-        // Create furniture based on the CSV data
-        createFurniture(data, asianSvg);
-    }
-});
+    d3.csv("data/SPM_Resources_Avgs_by_Race.csv", function (error, data) {
+        if (error) {
+            console.log(error);
+        } else {
+            // Create furniture based on the CSV data
+            createFurniture(data, asianSvg);
+        }
+    });
 })();
