@@ -52,13 +52,12 @@ import('./visualization.js').then(module => {
             document.getElementById("filterButtons").style.display = "block";
             d3.select(`#vis-svg-${category.toLowerCase()}`).style("display", "block");
         });
-    });
 
-    d3.select("#back").on("click", function() {
-        document.getElementById("filterButtons").style.display = "none";
-        d3.select("#vis-svg-2").style("display", "none");
-        d3.select("#vis-svg-1").style("display", "block");
-
+        d3.select(`#${category.toLowerCase()}-back-button`).on("click", function() {
+            d3.select(`#vis-svg-${category.toLowerCase()}`).style("display", "none");
+            d3.select("#vis-svg-1").style("display", "block");
+            document.getElementById("filterButtons").style.display = "none";
+        });
     });
 
     function createFloorPlan(name) {
@@ -126,6 +125,11 @@ import('./visualization.js').then(module => {
         labels.forEach(label => {
             floorPlan.addText(hexagonDimension, label.x, label.y, label.text);
         });
-    }
+
+        // Add back button
+        floorPlan.addText(roomFloorPlan, 900, 100, 'Back', '20px', 'black')
+            .attr('id', `${name}-back-button`)
+            .style('cursor', 'pointer');
+        }
 
 });
