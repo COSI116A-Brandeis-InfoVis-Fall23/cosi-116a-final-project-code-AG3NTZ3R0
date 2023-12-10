@@ -1,4 +1,4 @@
-["#door1", "#door2", "#door3", "#door4"].forEach(function(door, index) {
+["#door1", "#door2", "#door3", "#door4"].forEach(function(door) {
     d3.select(door).on("click", function() {
 
         // Toggles visibility of MFH svg & filter and back buttons

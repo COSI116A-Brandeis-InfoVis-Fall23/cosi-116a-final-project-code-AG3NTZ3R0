@@ -31,6 +31,7 @@
       <strong>Christine Nguyen</strong>,
       <strong>Kaiyu Peng</strong>
     </p>
+<<<<<<< HEAD
     <p>Project-long Course Project as part of COSI 116A: Information Visualization, taught by <a
         href="https://cs.brandeis.edu/~dylan/">Prof. Dylan Cashman</a>, <a href="https://cs.brandeis.edu/">Brandeis
         University</a>.</p>
@@ -39,9 +40,28 @@
     <p><em>Summary of user needs and motivating questions.</em></p>
     <p><em>Expectation: There is a clear focus, and a developed explanation of the problem, and a reasonable response is
         proposed.</em></p>
+=======
+
+    <p>
+      Project-long Course Project as part of COSI 116A: Information Visualization,
+      taught by <a href="https://cs.brandeis.edu/~dylan/">Prof. Dylan Cashman</a>,
+      <a href="https://cs.brandeis.edu/">Brandeis University</a>.
+    </p>
+
+    <h1>Motivation</h1>
+    <p>
+      <em>
+        We have set out to create an interactive and educational visualization tool that addresses the organizational
+        need for a straightforward way to understand the complex relationship of poverty and racial demographics with
+        housing inequality in the United States. The tool allows users to explore and compare different household
+        conditions through an interactive floor plan with color-coded items which represent income and expenses, thereby
+        transforming abstract data into a vivid, tangible experience that powerfully conveys the realities of housing
+        inequality.
+      </em>
+    </p>
+>>>>>>> origin/main
 
     <h1>Visualization</h1>
-    <p><em>Include the interactive visualization as part of this page. Static example follows.</em></p>
   </div>
 
   <!-- Filter Buttons, initially hidden -->
@@ -73,6 +93,7 @@
         slides.</em></p>
 
     <h1>Data Analysis</h1>
+<<<<<<< HEAD
     <p><em>Summary of data, data types, and data preprocessing.</em></p>
     <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very
         explicit so someone could read your page and properly reproduce your results.</em></p>
@@ -81,16 +102,58 @@
     <p><em>Summary of task table.</em></p>
     <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em>
     </p>
+=======
+    <p>
+      <em>
+        Our project uses data from the American Community Survey Supplemental Poverty Measure (ACS SPM) from 2009 to
+        2019, focusing on demographics, economics, and housing to understand poverty-related trends. The dataset,
+        comprising 47 columns, includes categorical, ordinal, and quantitative types. We aggregated this data into
+        averages for each racial demographic, which was crucial for dynamically generating furniture in the floor plan
+        of our tool. Specific features from the dataset were selected to represent different furniture pieces,
+        illustrating various household conditions. Accompanying the data, a dictionary provided clear explanations of
+        each column, enhancing our understanding. Extensive data processing was necessary, revealing patterns and
+        trends not immediately visible in the raw data, and aiding in the creation of our visualizations.
+      </em>
+    </p>
+    <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.</em></p>
+
+    <h1>Task Analysis</h1>
+    <p>
+      <em>
+        The main task of our visualization is to discover the correlation between housing inequality and poverty trends 
+        among diverse racial backgrounds in the United States. We also want to present the impact and variations introduced 
+        by other demographic factors on this relationship, particularly on people's housing choices and economic situation. 
+        Users are able to derive personalized insights through exploring the nuanced economic dynamics within a unit accross 
+        different demographic and housing scenarios.
+      </em>
+    </p>
+    <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em></p>
+>>>>>>> origin/main
 
     <h1>Design Process</h1>
-    <p><em>Sketches and design choices to justify final visualization.</em></p>
+    <p>
+      <em>
+        Sketches and design choices to justify final visualization.
+      </em>
+    </p>
     <p><em>Expectation: Evidence of iterative improvement.
         Logical discussion of design choices grounded in theory from course.
         Discusses feedback from usability testing.</em></p>
 
-
     <h1>Conclusion</h1>
-    <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
+    <p>
+      <em>
+        In conclusion, our project not only simplifies the complex narrative of housing inequality in the United States
+        but also brings it to life through an interactive floor plan. By aggregating and processing extensive ACS SPM
+        data, focusing on key demographic and economic aspects, and converting these into tangible, color-coded
+        elements representing household conditions, we have created a tool that not only educates but also engages
+        users in understanding and exploring the nuances of this critical social issue. This approach transforms
+        abstract statistics into a relatable, visual story, making the realities of housing inequality more accessible
+        and comprehensible to a broader audience. Our work underscores the power of data visualization in bridging the
+        gap between complex data and public understanding, paving the way for more informed discussions and potential
+        solutions to this persistent challenge.
+      </em>
+    </p>
     <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
 
     <h1>Acknowledgments</h1>
@@ -105,6 +168,11 @@
 
   <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
   <script src="lib/d3.v4/d3.v4.js"></script>
+<<<<<<< HEAD
+=======
+  <script src="js/visualization.js"></script>
+  <script src="js/data_generation.js"></script>
+>>>>>>> origin/main
   <script src="js/furniture.js"></script>
   <script src="js/visualization.js"></script>
   <script src="js/hexagon.js"></script>
