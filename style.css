@@ -99,3 +99,24 @@ h1, h2, h3 {
 #vis-svg-2 {
 	display: none;
 }
+
+/* Controlling image size */
+.img-responsive {
+
+	max-width: 100%; /* Ensure images don't exceed their original size */
+	height: auto; /* Maintain aspect ratio */
+	display: block; /* Remove extra space below the image */
+	margin: 0 auto; /* Center the images */
+	max-height: 500px; /* Adjust the maximum height of the images */
+
+}
+
+/* Flexible container for sketch images */
+.image-container {
+	display: flex;
+	justify-content: space-around; /* Adjust as needed */
+	flex-wrap: wrap; /* Wrap to the next line if there's not enough space */
+	max-width: 100%; /* Adjust the maximum width of the container */
+	margin: 0 auto; /* Center the container */
+	text-align: center; /* Center text within the container */
+}
