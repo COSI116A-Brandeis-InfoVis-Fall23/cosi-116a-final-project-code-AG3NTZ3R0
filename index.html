@@ -98,7 +98,7 @@
         The main task of our visualization is to discover the correlation between housing inequality and poverty trends 
         among diverse racial backgrounds in the United States. We also want to present the impact and variations introduced 
         by other demographic factors on this relationship, particularly on people's housing choices and economic situation. 
-        Users are able to derive personalized insights through exploring the nuanced economic dynamics within a unit accross 
+        Users are able to derive personalized insights through exploring the nuanced economic dynamics within a unit across
         different demographic and housing scenarios.
       </em>
     </p>
@@ -106,7 +106,68 @@
     <h1>Design Process</h1>
     <p>
       <em>
-        Sketches and design choices to justify final visualization.
+        Our multi-family home view provides an engaging, clear visual representation of the data, with
+        a customizable focus. The floor plan view provides a different perspective on the
+        data and allows for clear comparisons between trends within different racial demographics. The radar chart view
+        displays the six critical dimensions of housing inequality in a dynamic and informative way,
+        revealing intersections and variations in inequality within and between the dimensions. Our use of contrasting
+        color marks makes it easier to compare the relative values of our data.
+      </em>
+    </p>
+    <p>
+      <em>
+        We imagined a floor plan would immediately make the focus of this visualization clear: showing
+        the resources a household has on average, when controlling for a key demographic factor. The
+        above sketch shows a single household's resources, represented with furniture of various
+        sizes and two colours. The size of each item of furniture is relative to the amount of
+        financial assets that it represents, while the color it has denotes whether the asset is a source of income or
+        an expenditure that household. The only shape with a certain meaning encoded
+        is the bed - each one represents one person in a given household, and its shape is relative to
+        how much that person earns annually. The idea is each furniture item is a solid color, only
+        displaying a small label with the exact numerical value when moused over. Additionally, there is
+        a legend that can also be moused over and links each furniture item to the table of values
+        by highlighting. (Note: this particular household in the sketch does not receive any subsidies from the government,
+        so only their total income is represented with the two beds).
+      </em>
+    </p>
+
+    <div class="image-container">
+        <img src="/images/multifamily_home_sketch.png" alt="Multifamily Home Sketch: An illustration of a multi-family dwelling, serving as main page." class="img-responsive">
+        <img src="/images/floor_plan_sketch.png" alt="Floor Plan Sketch: A diagram of a household's financial assets depicted as furniture of varying colors." class="img-responsive">
+        <img src="/images/radar_chart_sketch.png" alt="Radar Chart Sketch: A hexagonal visualization of data points, with each data point connected by lines to form a web-like shape." class="img-responsive">
+        <img src="/images/customizable_views_sketches.png" alt="Customizable Views Sketches: A collection of wireframes depicting various ways in which a user could filter or customize data displays." class="img-responsive">
+        <em>
+          Our preliminary brainstorming sketches.
+        </em>
+    </div>
+
+    <p>
+      <em>
+        To prepare for peer review, we created a slideshow to present mock interactions with our data. We assigned
+        subsidies the color orange to denote a third source of income for households. In our final visualization, we
+        made furniture grey when it does not receive that resource at all, and we create a different channel of sized
+        marks to denote quantities of finances that a piece of furniture would represent. Here we decided to create multiple
+        filtered views across our six dimensions and intended to implement brushing and linking between the furniture,
+        the hexagon values, and the calculations pop-ups.
+      </em>
+    </p>
+    <div class="image-container">
+        <img src="/images/sample_radar_chart.png" alt="Sample Radar Chart: A web of six key demographic factors of interest." class="img-responsive">
+        <img src="/images/sample_floorplan_1.png" alt="Sample Floor Plan Sketch 1: A diagram of a household's financial assets with hoverable key and toggle-able filters." class="img-responsive">
+        <img src="/images/sample_floorplan_2.png" alt="Sample Floor Plan Sketch 2: A diagram of four household's financial assets, one for each racial category, to compare across a customizable dimension." class="img-responsive">
+        <img src="/images/sample_floorplan_3.png" alt="Sample Floor Plan Sketch 3: A diagram of two household's financial assets, demonstrating a mouse cursor hovering over and linking furniture items corresponding to the type of asset in data." class="img-responsive">
+        <em>
+          The full slideshow can be viewed <a href="https://docs.google.com/presentation/d/1symeL7RuEmlo8Hzp21XUSeGTIwiSWAsMZOmDIjuTVsk/edit?usp=sharing">here</a>.
+        </em>
+    </div>
+
+    <p>
+      <em>
+        We received feedback that it was difficult for to discern what our central questions or investigation were meant to
+        highlight from the data. We boil down to simpler marks and fewer channels for our final iteration. We hoped to
+        show how households struggle, exploring how socioeconomic factors like educational attainment, marriage
+        status, homeownership status, poverty level, and state can affect people's livelihoods and perspectives on wealth
+        inequality across the country.
       </em>
     </p>
     <p><em>Expectation: Evidence of iterative improvement.
@@ -140,9 +201,8 @@
   <script src="lib/d3.v4/d3.v4.js"></script>
   <script type="module" src="js/visualization.js"></script>
   <script src="js/data_generation.js"></script>
-  <script src="js/furniture.js"></script>
   <script src="js/hexagon.js"></script>
   <script src="js/multifamily.js"></script>
-<script src="js/room_filter.js"></script>
+  <script src="js/room_filter.js"></script>
 </body>
 </html>
