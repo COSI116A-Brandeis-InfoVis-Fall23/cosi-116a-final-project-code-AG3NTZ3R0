@@ -10,7 +10,7 @@ export class Furniture {
         // this.createBed(70,30,80,100,"red");
         // this.createBed(60,330,70,100,"green",180);
         // this.createBed(200,350,50,80,"green",180);
-        this.createBed(70,30,80,"red");
+        this.createBed(70,30,80,"green");
         this.createBed(60,330,70,"green",180);
         this.createBed(200,350,50,"green",180);
         // Bathtub
@@ -77,8 +77,8 @@ export class Furniture {
 
     createCouch(x, y, w, color, rotation) {
         let h = 43;
-        if (w < 50) {let h = 0.85 * w;}
-        if (w > 100) {let h = 0.43 * w;}
+        if (w < 50) {h = 0.85 * w;}
+        if (w > 100) {h = 0.43 * w;}
         let g = this.svg.append("g").attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h).style("opacity", 0.4)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", w).attr("height", 0.4 * h).style("opacity", 0.5)
