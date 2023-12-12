@@ -1,7 +1,5 @@
 import { SVGChart } from './svg_chart.js';
-
 import { FloorPlan } from "./floor_plan.js";
-
 import { Furniture } from "./furniture.js";
 import { RoomKey } from "./room_key.js";
 
@@ -42,10 +40,11 @@ export class MultiFamilyHome extends SVGChart {
             let roomKey = new RoomKey(`#vis-svg-${category.toLowerCase()}`);
             roomKey.addRoomKey();
 
+            this.load(category.toLowerCase());
+
             let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`);
             furniture.sampleFurniture();
 
-            this.load(category.toLowerCase());
 
             index++;
         }
