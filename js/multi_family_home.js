@@ -70,7 +70,41 @@ export class MultiFamilyHome extends SVGChart {
             if (error) {
                 console.log(error);
             } else {
-                console.log(data);
+                let columns = [
+                    // Each Income
+                    "SPM Resources (AVG)", "SPM Totval (AVG)",
+                    // Total Tax
+                    "SPM FedTax (AVG)", "SPM Fica (AVG)", "SPM StTax (AVG)",
+                    // Total Subsidies
+                    "SPM SnapSub (AVG)", "SPM SchLunch (AVG)", "SPM WIC (AVG)", "SPM CapHouseSub (AVG)", "SPM EngVal (AVG)",
+                    // Work Expenses
+                    "SPM CapWkCCXpns (AVG)",
+                    // Other Expenses
+                    // None
+                    // Child Expenses
+                    "SPM CapWkCCXpns (AVG)",
+                    // Medical Expenses
+                    "SPM MedXpns (AVG)"
+                ]
+                let statistics = {};
+                columns.forEach(function(column) {
+                    // Generate default statistics
+                    statistics[column] = {"count": 0, "total": 0, "avg": 0, "max": 0, "min": 1000000};
+                    // Generate statistics
+                    data.forEach(function(row) {
+                        if (row[column] < statistics[column]["min"]) {
+                            statistics[column]["min"] = row[column];
+                        }
+                        if (row[column] > statistics[column]["max"]) {
+                            statistics[column]["max"] = row[column];
+                        }
+                        statistics[column]["total"] += +row[column];
+                        statistics[column]["count"] += 1;
+                    });
+                    statistics[column]["avg"] = statistics[column]["total"] / statistics[column]["count"];
+                });
+
+                console.log(statistics)
             }
         });
     }
