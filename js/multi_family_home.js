@@ -45,6 +45,8 @@ export class MultiFamilyHome extends SVGChart {
             let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`);
             furniture.sampleFurniture();
 
+            this.load(category.toLowerCase());
+
             index++;
         }
 
@@ -61,6 +63,16 @@ export class MultiFamilyHome extends SVGChart {
                 d3.select("#vis-svg-1").style("display", "block");
                 document.getElementById("filterButtons").style.display = "none";
             });
+        });
+    }
+
+    load(racialCategory) {
+        d3.csv(`data/${racialCategory}_floor_plan.csv`, function(error, data) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log(data);
+            }
         });
     }
 }
