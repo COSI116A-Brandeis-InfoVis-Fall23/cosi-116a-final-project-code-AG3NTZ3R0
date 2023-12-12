@@ -1,12 +1,14 @@
 export class Furniture {
-    constructor(svgId) {
+    constructor(svgId, data) {
         this.svg = d3.select(svgId);
+
+        this.data = data;
     }
 
     sampleFurniture() {
         // Create sample furniture
         // Bed
-        this.createBed(70,30,80,100,"green");
+        this.createBed(70,30,80,100,"red");
         this.createBed(60,330,70,100,"green",180);
         this.createBed(200,350,50,80,"green",180);
         // Bathtub
