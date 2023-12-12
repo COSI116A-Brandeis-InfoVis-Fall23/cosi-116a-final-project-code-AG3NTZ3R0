@@ -1,0 +1,27 @@
+1. **Each Income**:
+   - `SPM Resources (AVG)`: Represents total Supplemental Poverty Measure (SPM) resources for the unit.
+   - `SPM Totval (AVG)`: Indicates the cash income of the SPM unit.
+
+2. **Total Tax**:
+   - `SPM FedTax (AVG)`: Federal tax for the SPM unit.
+   - `SPM Fica (AVG)`: Federal Insurance Contributions Act and federal retirement contribution for the SPM unit.
+   - `SPM StTax (AVG)`: State tax for the SPM unit.
+
+3. **Total Subsidies**:
+   - `SPM SnapSub (AVG)`: Supplemental Nutrition Assistance Program subsidy.
+   - `SPM SchLunch (AVG)`: School lunch subsidy.
+   - `SPM WICval (AVG)`: Women, Infants, and Children subsidy.
+   - `SPM CapHouseSub (AVG)`: Capped housing subsidy.
+   - `SPM EngVal (AVG)`: Energy subsidy.
+
+4. **Work Expenses**:
+   - `SPM CapWkCCXpns (AVG)`: Capped work and child care expenses.
+
+5. **Other Expenses**:
+   - Not explicitly listed in the dataset.
+
+6. **Child Expenses**:
+   - Possibly part of `SPM CapWkCCXpns (AVG)` as it includes child care expenses.
+
+7. **Medical Expenses**:
+   - `SPM MedXpns (AVG)`: Medical Out-of-Pocket (MOOP) expenses and Medicare Part B subsidy for the SPM unit.
