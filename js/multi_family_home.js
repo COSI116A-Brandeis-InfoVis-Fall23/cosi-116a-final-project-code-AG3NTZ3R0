@@ -76,7 +76,7 @@ export class MultiFamilyHome extends SVGChart {
                     // Total Tax
                     "SPM FedTax (AVG)", "Spm Fica (AVG)", "SPM StTax (AVG)",
                     // Total Subsidies
-                    "SPM SnapSub (AVG)", "SPM SchLunch (AVG)", "SPM WICvalgi (AVG)", "SPM CapHouseSub (AVG)", "SPM EngVal (AVG)",
+                    "SPM SnapSub (AVG)", "SPM SchLunch (AVG)", "SPM WICval (AVG)", "SPM CapHouseSub (AVG)", "SPM EngVal (AVG)",
                     // Work Expenses
                     "SPM CapWkCCXpns (AVG)",
                     // Other Expenses
