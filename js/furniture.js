@@ -40,7 +40,6 @@ export class Furniture {
      * @param {*} x   x coordinate
      * @param {*} y   y coordinate
      * @param {*} w   furniture's width
-     * @param {*} h   furniture's height
      * @param {*} color   furniture's color
      * @param {*} rotation   furniture's rotation angle
      */
