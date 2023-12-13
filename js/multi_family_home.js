@@ -40,10 +40,7 @@ export class MultiFamilyHome extends SVGChart {
 
             let roomKey = new RoomKey(`#vis-svg-${category.toLowerCase()}`);
             roomKey.addRoomKey();
-
-            let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`);
-            furniture.sampleFurniture();
-
+            
             let hexagon = new Hexagon(`#vis-svg-${category.toLowerCase()}`);
 
             this.load(category.toLowerCase(), (error, statistics) => {
@@ -52,6 +49,8 @@ export class MultiFamilyHome extends SVGChart {
                   } else {
                     console.log(statistics)
                     // Generate furniture
+                    let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`, );
+                    furniture.build();
 
                     // Generate hexagon
                     let resources = statistics["SPM Resources (AVG)"]["avg"],
@@ -64,7 +63,6 @@ export class MultiFamilyHome extends SVGChart {
                     hexagon.generateHexagon(resources, cashIncome, totalTax, totalSubsidies, wkccExpenses, medExpenses);
                   }
             });
-
 
             index++;
         }
