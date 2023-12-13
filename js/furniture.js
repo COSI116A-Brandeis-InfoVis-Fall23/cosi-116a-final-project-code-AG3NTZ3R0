@@ -10,7 +10,7 @@ export class Furniture {
         // this.createBed(70,30,80,100,"red");
         // this.createBed(60,330,70,100,"green",180);
         // this.createBed(200,350,50,80,"green",180);
-        this.createBed(70,30,80,"green");
+        this.createBed(70,30,80,"green", 180);
         this.createBed(60,330,70,"green",180);
         this.createBed(200,350,50,"green",180);
         // Bathtub
@@ -25,11 +25,11 @@ export class Furniture {
         // this.createCouch(350,140,50,43,"red",300);
         // this.createCouch(390,250,100,43,"orange",175);
         // this.createCouch(390,445,30,25,"red");
-        this.createCouch(350,140,50,"red",300);
-        this.createCouch(390,250,100,"orange",175);
+        this.createCouch(350,225,50,"red",300);
+        this.createCouch(390,340,100,"orange",175);
         this.createCouch(390,445,30,"red");
         // Other furniture
-        this.createRect(400,180,80,50,"orange");
+        this.createRect(400,275,80,50,"orange");
         this.createRect(610,175,40,100,"orange");
         this.createRect(620,30,30,40,"red");
         this.createCircle(440,470,13,"red");
