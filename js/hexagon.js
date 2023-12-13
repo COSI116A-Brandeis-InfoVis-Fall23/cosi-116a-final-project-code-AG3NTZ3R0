@@ -13,12 +13,12 @@ export class Hexagon {
 
     // Upper bound value for each dimension
     maxValue = {
-        resources: 100000,
-        cashIncome: 100000,
-        totalTax: 20000,
+        resources: 65000,
+        cashIncome: 80000,
+        totalTax: 10000,
         totalSubsidies: 4000,
-        wkccExpenses: 1000,
-        medicalExpenses: 10000,
+        wkccExpenses: 3000,
+        medicalExpenses: 6000,
     }
 
     // Points
@@ -65,17 +65,26 @@ export class Hexagon {
     }
 
     generateHexagon(resources, cashIncome, totalTax, totalSubsidies, wkccExpenses, medicalExpenses) {
-        let p1 = this.generateVertex("Resources", resources);
-        let p2 = this.generateVertex("Cash Income", cashIncome);
-        let p3 = this.generateVertex("Medical Expenses", medicalExpenses);
-        let p4 = this.generateVertex("WKCC Expenses", wkccExpenses);
-        let p5 = this.generateVertex("Total Subsidies", totalSubsidies);
-        let p6 = this.generateVertex("Total Tax", totalTax);
+        let points = [
+            this.generateVertex("Resources", resources),
+            this.generateVertex("Cash Income", cashIncome),
+            this.generateVertex("Medical Expenses", medicalExpenses),
+            this.generateVertex("WKCC Expenses", wkccExpenses),
+            this.generateVertex("Total Subsidies", totalSubsidies),
+            this.generateVertex("Total Tax", totalTax)
+        ];
 
         this.svg.append("polygon")
-        .attr("points", `${p1.x} ${p1.y}, ${p2.x} ${p2.y}, ${p3.x} ${p3.y}, ${p4.x} ${p4.y}, ${p5.x} ${p5.y}, ${p6.x} ${p6.y}, ${p1.x} ${p1.y}`)
+        .attr("points", `${points[0].x} ${points[0].y}, ${points[1].x} ${points[1].y}, ${points[2].x} ${points[2].y}, 
+        ${points[3].x} ${points[3].y}, ${points[4].x} ${points[4].y}, ${points[5].x} ${points[5].y}, ${points[0].x} ${points[0].y}`)
         .attr("transform", "rotate(30,830,353.93)")
         .attr("fill", "green").attr("opacity", 0.6)
+        
+        for (let p of points) {
+            this.svg.append("circle").attr('id', 'resources').attr('cx', `${p.x}`).attr('cy', `${p.y}`).attr('r', '3')
+            .attr("transform", "rotate(30,830,353.93)").attr("fill", "green")
+        }
+        
     }
 
 }
