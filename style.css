@@ -120,3 +120,29 @@ h1, h2, h3 {
 	margin: 0 auto; /* Center the container */
 	text-align: center; /* Center text within the container */
 }
+
+/* Don't do text drag selection */
+.text-unselectable {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+/* Style for selected marks */
+.furniture-selected {
+	opacity: 1;
+}
+
+.point-selected {
+	fill: red;
+}
+
+.mouseover {
+	stroke: white;
+	stroke-width: 1;
+}
