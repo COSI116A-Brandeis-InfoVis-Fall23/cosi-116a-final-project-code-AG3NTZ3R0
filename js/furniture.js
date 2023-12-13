@@ -2,6 +2,7 @@ export class Furniture {
     constructor(svgId, data) {
         this.svg = d3.select(svgId);
         this.data = data;
+        this.fg = this.svg.append("g").attr("id", "furniture");
     }
 
     sampleFurniture() {
@@ -27,7 +28,7 @@ export class Furniture {
 
     createBed(id, x, y, w, color, rotation) {
         let h = 1.25 * w;
-        let g = this.svg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
+        let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
         // bedsheet
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h).style("opacity", 0.4)
         // pillow
@@ -38,14 +39,14 @@ export class Furniture {
 
     createBathtub(id, x, y, w, color) {
         let h = 0.6 * w;
-        let g = this.svg.append("g").attr("id", id).attr("fill", `${color}`)
+        let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`)
         g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).style("opacity", 0.5)
         g.append("rect").attr("x", x + w / 12).attr("y", y + h / 8).attr("rx", 4).attr("ry", 4).attr("width", w - w / 6).attr("height", h - h / 4).style("opacity", 0.5)
     }
 
     createDiningTable(id, x, y, w, color, rotation) {
         let h = 0.6 * w;
-        let g = this.svg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
+        let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
         // table
         g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).style("opacity", 0.7)
         // chairs
@@ -60,7 +61,7 @@ export class Furniture {
         let h = 43;
         if (w < 50) {h = 0.85 * w;}
         if (w > 100) {h = 0.43 * w;}
-        let g = this.svg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
+        let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h).style("opacity", 0.4)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", w).attr("height", 0.4 * h).style("opacity", 0.5)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", 0.3 * w).attr("height", h).style("opacity", 0.5)
@@ -69,7 +70,7 @@ export class Furniture {
 
     createRect(id, x, y, w, h, color, rotation = 0) {
         let rotationPoint = `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`;
-        this.svg
+        this.fg
             .append('g')
             .attr('id', id)
             .append("rect")
@@ -83,6 +84,6 @@ export class Furniture {
     }
 
     createCircle(x, y, r, color) {
-        this.svg.append("circle").attr("cx", x).attr("cy", y).attr("r", r).style("fill", `${color}`).style("opacity", 0.6)
+        this.fg.append("circle").attr("cx", x).attr("cy", y).attr("r", r).style("fill", `${color}`).style("opacity", 0.6)
     }
 }
