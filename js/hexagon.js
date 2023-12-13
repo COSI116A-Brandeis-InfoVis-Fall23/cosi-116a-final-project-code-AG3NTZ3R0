@@ -9,6 +9,8 @@ export class Hexagon {
     constructor(svgId, data) {
         this.svg = d3.select(svgId);
         this.data = data;
+        this.vertices = this.svg.append('g').attr('id', 'hexagon-vertices');
+        this.dispatcher;
     }
 
     // Upper bound value for each dimension
@@ -81,12 +83,96 @@ export class Hexagon {
         .attr("fill", "green").attr("opacity", 0.6)
 
         let id = ['p-resources','p-totval','p-medxpns','p-wkccxpns','p-totsub','p-tottax'];
-        
+
         for (let i = 0; i < 6; i++) {
-            this.svg.append("circle").attr('id', id[i]).attr('cx', `${points[i].x}`).attr('cy', `${points[i].y}`).attr('r', '3')
+            this.vertices.append("circle").attr('id', id[i]).attr('cx', `${points[i].x}`).attr('cy', `${points[i].y}`).attr('r', '3')
             .attr("transform", "rotate(30,830,353.93)").attr("fill", "green")
         }
         
+    }
+
+    // Brushing and Linking
+    brush() {
+        let margin = {
+            top: 240,
+            left: 700,
+            right: 960,
+            bottom: 465
+        }
+
+        const brush = d3.brush()
+        .on("start brush", highlight)
+        .on("end", brushEnd)
+        .extent([[margin.left, margin.top],[margin.right, margin.bottom]]);
+
+        this.svg.call(brush);
+
+        // Highlight the selected vertices in hexagon
+        function highlight() {
+            if (d3.event.selection === null) return;
+            const [[x0, y0],[x1, y1]] = d3.event.selection;
+
+            // select vertices
+            const vertices = this.vertices.selectAll("circle");
+            vertices.each(function() {
+                const vertex = d3.select(this);
+                const x = +vertex.attr("cx");
+                const y = +vertex.attr("cy");
+                vertex.classed("point-selected", x0 <= x && x <= x1 && y0 <= y && y <= y1);
+            })
+
+            let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+
+            dispatcher.call(dispatchString, this, svg.selectAll(".point-selected").id());
+        }
+
+        function brushEnd() {
+            if (d3.event.sourceEvent.type != "end") {
+              d3.select(this).call(brush.move, null);
+            }
+          }
+        
+    }
+
+    selectionDispatcher(_) {
+        if (!arguments.length) return dispatcher;
+        this.dispatcher = _;
+    }
+
+    updateSelection(selectedFurniture) {
+        if (!arguments.length) return;
+        const furnitureIds = selectedFurniture.selectAll("*").nodes().map(element => element.id);
+        // update selected vertices according to selected furniture
+        for (let id in furnitureIds) {
+            id = id.substring(2);
+            switch (id) {
+                case "resources": 
+                    this.vertices.select("#p-resources").classed("point-selected")
+                    break;
+                case "totval": 
+                    this.vertices.select("#p-totval").classed("point-selected")
+                    break;
+                case "medxpns": 
+                    this.vertices.select("#p-medxpns").classed("point-selected")
+                    break;
+                case "capwkccxpns": 
+                    this.vertices.select("#p-wkccxpns").classed("point-selected")
+                    break;
+                case "fedtax":
+                case "sttax":
+                case "fica":
+                    this.vertices.select("#p-tottax").classed("point-selected")
+                    break;
+                case "snapsub":
+                case "schlunch":
+                case "wicval":
+                case "caphousesub":
+                case "engval":
+                    this.vertices.select("#p-totsub").classed("point-selected")
+                    break;
+                default:
+            }
+        }
     }
 
 }
