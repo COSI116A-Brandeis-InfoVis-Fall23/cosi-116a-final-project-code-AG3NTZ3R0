@@ -67,13 +67,14 @@ export class FloorPlan extends SVGChart {
 
         // Text Labels
         const labels = [
-            {x: 800, y: 225, text: "Cash Income"},
+            {x: 803, y: 225, text: "Resources"},
             {x: 675, y: 285, text: "Total Tax"},
-            {x: 940, y: 280, text: "Total Subsidies"},
-            {x: 675, y: 410, text: "Work Expenses"},
-            {x: 675, y: 425, text: "Other Expenses"},
-            {x: 800, y: 490, text: "Child Expenses"},
-            {x: 940, y: 410, text: "Medical Expenses"}
+            {x: 930, y: 285, text: "Cash Income"},
+            {x: 675, y: 410, text: "Total"},
+            {x: 675, y: 425, text: "Subsidies"},
+            {x: 760, y: 490, text: "Work and Child Care Expenses"},
+            {x: 940, y: 410, text: "Medical"},
+            {x: 940, y: 425, text: "Expenses"}
         ];
 
         labels.forEach(label => {
