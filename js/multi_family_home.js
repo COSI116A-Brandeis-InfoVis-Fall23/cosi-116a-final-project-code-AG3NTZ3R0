@@ -49,7 +49,7 @@ export class MultiFamilyHome extends SVGChart {
                   } else {
                     console.log(statistics)
                     // Generate furniture
-                    let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`, );
+                    let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`, statistics);
                     furniture.build();
 
                     // Generate hexagon
