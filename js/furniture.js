@@ -7,22 +7,22 @@ export class Furniture {
     sampleFurniture() {
         // Create sample furniture
         // Bed
-        this.createBed('bed-spm-resources',70,30,80,"green", 180);
-        this.createBed('bed-totval', 60,330,70,"green",180);
-        this.createBed('bed-fedtax', 200,350,50,"red",180);
+        this.createBed('f-resources',70,30,80,"green",180);
+        this.createBed('f-totval', 60,330,70,"green",180);
+        this.createBed('f-fedtax', 200,350,50,"red",180);
         // Bathtub
-        this.createBathtub('snapsub', 320,30,50,"orange");
-        this.createBathtub('schlunch', 230,110,50,"orange");
+        this.createBathtub('f-snapsub', 320,30,50,"orange");
+        this.createBathtub('f-schlunch', 230,110,50,"orange");
         // Dining table
-        this.createDiningTable('table-fica', 520,340,100,"red");
+        this.createDiningTable('f-fica', 520,340,100,"red");
         // Couch
-        this.createCouch('medxpns', 350,225,50,"red",300);
-        this.createCouch('wicval', 390,340,100,"orange",175);
-        this.createCouch('couch-sttax',390,445,30,"red");
+        this.createCouch('f-medxpns', 350,225,50,"red",300);
+        this.createCouch('f-wicval', 390,340,100,"orange",175);
+        this.createCouch('f-sttax',390,445,30,"red");
         // Other furniture
-        this.createRect('caphousesub', 400,275,80,50,"orange");
-        this.createRect('engval', 610,175,40,100,"orange");
-        this.createRect('capwkccxpns', 620,30,30,40,"red");
+        this.createRect('f-caphousesub', 400,275,80,50,"orange");
+        this.createRect('f-engval', 610,175,40,100,"orange");
+        this.createRect('f-capwkccxpns', 620,30,30,40,"red");
     }
 
     createBed(id, x, y, w, color, rotation) {
