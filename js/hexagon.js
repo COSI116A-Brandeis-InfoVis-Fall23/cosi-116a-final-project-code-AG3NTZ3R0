@@ -32,32 +32,32 @@ export class Hexagon {
 
     // Generate vertex in the given dimension
     generateVertex(dimension, value) {
-        let x = originPoint.x;
-        let y = originPoint.y;
+        let x = this.originPoint.x;
+        let y = this.originPoint.y;
         switch (dimension) {
             case "Resources":
-                x = originPoint.x - value / maxValue.cashIncome * Math.abs(cashIncomeEndPoint.x - originPoint.x);
-                y = originPoint.y - value / maxValue.cashIncome * Math.abs(cashIncomeEndPoint.y - originPoint.y);
+                x = this.originPoint.x - value / this.maxValue.resources * Math.abs(this.resourcesEndPoint.x - this.originPoint.x);
+                y = this.originPoint.y - value / this.maxValue.resources * Math.abs(this.resourcesEndPoint.y - this.originPoint.y);
                 break;
             case "Total Tax":
-                x = originPoint.x - value / maxValue.totalTax * Math.abs(totalTaxEndPoint.x - originPoint.x);
-                y = totalTaxEndPoint.y;
+                x = this.originPoint.x - value / this.maxValue.totalTax * Math.abs(this.totalTaxEndPoint.x - this.originPoint.x);
+                y = this.totalTaxEndPoint.y;
                 break;
             case "Cash Income":
-                x = originPoint.x + value / maxValue.totalSubsidies * Math.abs(totalSubsidiesEndPoint.x - originPoint.x);
-                y = originPoint.y - value / maxValue.totalSubsidies * Math.abs(totalSubsidiesEndPoint.y - originPoint.y);
+                x = this.originPoint.x + value / this.maxValue.cashIncome * Math.abs(this.cashIncomeEndPoint.x - this.originPoint.x);
+                y = this.originPoint.y - value / this.maxValue.cashIncome * Math.abs(this.cashIncomeEndPoint.y - this.originPoint.y);
                 break;
             case "Total Subsidies":
-                x = originPoint.x - value / maxValue.workExpenses * Math.abs(workExpensesEndPoint.x - originPoint.x);
-                y = originPoint.y + value / maxValue.workExpenses * Math.abs(workExpensesEndPoint.y - originPoint.y);
+                x = this.originPoint.x - value / this.maxValue.totalSubsidies * Math.abs(this.totalSubsidiesEndPoint.x - this.originPoint.x);
+                y = this.originPoint.y + value / this.maxValue.totalSubsidies * Math.abs(this.totalSubsidiesEndPoint.y - this.originPoint.y);
                 break;
             case "WKCC Expenses":
-                x = originPoint.x + value / maxValue.childExpenses * Math.abs(childExpensesEndPoint.x - originPoint.x);
-                y = originPoint.y + value / maxValue.childExpenses * Math.abs(childExpensesEndPoint.y - originPoint.y);
+                x = this.originPoint.x + value / this.maxValue.wkccExpenses * Math.abs(this.wkccExpensesEndPoint.x - this.originPoint.x);
+                y = this.originPoint.y + value / this.maxValue.wkccExpenses * Math.abs(this.wkccExpensesEndPoint.y - this.originPoint.y);
                 break;
             case "Medical Expenses":
-                x = originPoint.x + value / maxValue.medicalExpenses * Math.abs(medicalExpensesEndPoint.x - originPoint.x);
-                y = medicalExpensesEndPoint.y;
+                x = this.originPoint.x + value / this.maxValue.medicalExpenses * Math.abs(this.medicalExpensesEndPoint.x - this.originPoint.x);
+                y = this.medicalExpensesEndPoint.y;
                 break;
             default:
         }
