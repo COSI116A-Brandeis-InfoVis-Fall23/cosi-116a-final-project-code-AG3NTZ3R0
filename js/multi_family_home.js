@@ -1,7 +1,7 @@
 import { SVGChart } from './svg_chart.js';
 import { FloorPlan } from "./floor_plan.js";
 import { Furniture } from "./furniture.js";
-import { Hexagon } from "./hexagon.js";
+import { Hexagon, Point } from "./hexagon.js";
 import { RoomKey } from "./room_key.js";
 
 export class MultiFamilyHome extends SVGChart {
@@ -40,7 +40,10 @@ export class MultiFamilyHome extends SVGChart {
 
             let roomKey = new RoomKey(`#vis-svg-${category.toLowerCase()}`);
             roomKey.addRoomKey();
-            
+
+            let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`);
+            furniture.sampleFurniture();
+
             let hexagon = new Hexagon(`#vis-svg-${category.toLowerCase()}`);
 
             this.load(category.toLowerCase(), (error, statistics) => {
@@ -62,8 +65,6 @@ export class MultiFamilyHome extends SVGChart {
                   }
             });
 
-            let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`);
-            furniture.sampleFurniture();
 
             index++;
         }
