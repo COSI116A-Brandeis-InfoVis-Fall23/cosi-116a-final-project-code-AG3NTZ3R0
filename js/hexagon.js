@@ -79,9 +79,11 @@ export class Hexagon {
         ${points[3].x} ${points[3].y}, ${points[4].x} ${points[4].y}, ${points[5].x} ${points[5].y}, ${points[0].x} ${points[0].y}`)
         .attr("transform", "rotate(30,830,353.93)")
         .attr("fill", "green").attr("opacity", 0.6)
+
+        let id = ['p-resources','p-totval','p-medxpns','p-wkccxpns','p-totsub','p-tottax'];
         
-        for (let p of points) {
-            this.svg.append("circle").attr('id', 'resources').attr('cx', `${p.x}`).attr('cy', `${p.y}`).attr('r', '3')
+        for (let i = 0; i < 6; i++) {
+            this.svg.append("circle").attr('id', id[i]).attr('cx', `${points[i].x}`).attr('cy', `${points[i].y}`).attr('r', '3')
             .attr("transform", "rotate(30,830,353.93)").attr("fill", "green")
         }
         
