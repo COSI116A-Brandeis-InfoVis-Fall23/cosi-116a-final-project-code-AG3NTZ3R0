@@ -48,6 +48,8 @@ export class MultiFamilyHome extends SVGChart {
                     console.error('Error when loading the dataset:', error);
                   } else {
                     console.log(statistics)
+                    // Generate furniture
+
                     // Generate hexagon
                     let resources = statistics["SPM Resources (AVG)"]["avg"],
                         cashIncome = statistics["SPM Totval (AVG)"]["avg"],
