@@ -65,15 +65,14 @@ export class Hexagon {
     }
 
     generateHexagon(resources, cashIncome, totalTax, totalSubsidies, wkccExpenses, medicalExpenses) {
-        p1 = generateVertex("Resources", resources);
-        p2 = generateVertex("Cash Income", cashIncome);
-        p3 = generateVertex("Medical Expenses", medicalExpenses);
-        p4 = generateVertex("WKCC Expenses", wkccExpenses);
-        p5 = generateVertex("Total Subsidies", totalSubsidies);
-        p6 = generateVertex("Total Tax", totalTax);
+        let p1 = this.generateVertex("Resources", resources);
+        let p2 = this.generateVertex("Cash Income", cashIncome);
+        let p3 = this.generateVertex("Medical Expenses", medicalExpenses);
+        let p4 = this.generateVertex("WKCC Expenses", wkccExpenses);
+        let p5 = this.generateVertex("Total Subsidies", totalSubsidies);
+        let p6 = this.generateVertex("Total Tax", totalTax);
 
-
-        d3.select("#hexagon").append("polygon")
+        this.svg.select("#hexagon").append("polygon")
         .attr("points", `${p1.x} ${p1.y}, ${p2.x} ${p2.y}, ${p3.x} ${p3.y}, ${p4.x} ${p4.y}, ${p5.x} ${p5.y}, ${p6.x} ${p6.y}, ${p1.x} ${p1.y}`)
         .attr("transform", "rotate(30,830,353.93)")
         .attr("fill", "green").attr("opacity", 0.6)
