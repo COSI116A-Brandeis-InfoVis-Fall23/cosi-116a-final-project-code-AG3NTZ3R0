@@ -1,6 +1,7 @@
 import { SVGChart } from './svg_chart.js';
 import { FloorPlan } from "./floor_plan.js";
 import { Furniture } from "./furniture.js";
+import { Hexagon } from "./hexagon.js";
 import { RoomKey } from "./room_key.js";
 
 export class MultiFamilyHome extends SVGChart {
@@ -39,12 +40,28 @@ export class MultiFamilyHome extends SVGChart {
 
             let roomKey = new RoomKey(`#vis-svg-${category.toLowerCase()}`);
             roomKey.addRoomKey();
+            
+            let hexagon = new Hexagon(`#vis-svg-${category.toLowerCase()}`);
 
-            this.load(category.toLowerCase());
+            this.load(category.toLowerCase(), (error, statistics) => {
+                if (error) {
+                    console.error('Error when loading the dataset:', error);
+                  } else {
+                    console.log(statistics)
+                    // Generate hexagon
+                    let resources = statistics["SPM Resources (AVG)"]["avg"],
+                        cashIncome = statistics["SPM Totval (AVG)"]["avg"],
+                        totalTax = statistics["SPM FedTax (AVG)"]["avg"] + statistics["Spm Fica (AVG)"]["avg"] + statistics["SPM StTax (AVG)"]["avg"],
+                        totalSubsidies = statistics["SPM SnapSub (AVG)"]["avg"] + statistics["SPM SchLunch (AVG)"]["avg"] + 
+                        statistics["SPM WICval (AVG)"]["avg"] + statistics["SPM CapHouseSub (AVG)"]["avg"] + statistics["SPM EngVal (AVG)"]["avg"],
+                        wkccExpenses = statistics["SPM CapWkCCXpns (AVG)"]["avg"],
+                        medExpenses = statistics["SPM MedXpns (AVG)"]["avg"];
+                    hexagon.generateHexagon(resources, cashIncome, totalTax, totalSubsidies, wkccExpenses, medExpenses);
+                  }
+            });
 
             let furniture = new Furniture(`#vis-svg-${category.toLowerCase()}`);
             furniture.sampleFurniture();
-
 
             index++;
         }
@@ -65,7 +82,7 @@ export class MultiFamilyHome extends SVGChart {
         });
     }
 
-    load(racialCategory) {
+    load(racialCategory, callback) {
         d3.csv(`data/${racialCategory}_floor_plan.csv`, function(error, data) {
             if (error) {
                 console.log(error);
@@ -104,7 +121,9 @@ export class MultiFamilyHome extends SVGChart {
                     statistics[column]["avg"] = statistics[column]["total"] / statistics[column]["count"];
                 });
 
-                console.log(statistics)
+                // console.log(statistics);
+
+                callback(null, statistics);
             }
         });
     }
