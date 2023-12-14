@@ -46,12 +46,15 @@ export class Furniture {
 
         [w, h] = this.scaleDimensions(w, h, metric)
         let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
+        // Tool Tip
+        g.append("title").text(metric)
         // bedsheet
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h).style("opacity", 0.4)
         // pillow
         g.append("rect").attr("x", x + w / 2 - 0.2 * w).attr("y", y + 6).attr("rx", 3).attr("ry", 3).attr("width", 0.4 * w).attr("height", 0.2 * w).style("opacity", 0.5)
         // quilt
         g.append("rect").attr("x", x).attr("y", y + 0.3 * w).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h - 0.3 * w).style("opacity", 0.4)
+
     }
 
     createBathtub(id, metric, x, y, color) {
@@ -60,6 +63,8 @@ export class Furniture {
 
         [w, h] = this.scaleDimensions(w, h, metric)
         let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`)
+        // Tool Tip
+        g.append("title").text(metric)
         g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).style("opacity", 0.5)
         g.append("rect").attr("x", x + w / 12).attr("y", y + h / 8).attr("rx", 4).attr("ry", 4).attr("width", w - w / 6).attr("height", h - h / 4).style("opacity", 0.5)
     }
@@ -70,6 +75,8 @@ export class Furniture {
 
         [w, h] = this.scaleDimensions(w, h, metric)
         let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
+        // Tool Tip
+        g.append("title").text(metric)
         // table
         g.append("rect").attr("x", x).attr("y", y).attr("width", w).attr("height", h).style("opacity", 0.7)
         // chairs
@@ -88,6 +95,8 @@ export class Furniture {
 
         [w, h] = this.scaleDimensions(w, h, metric)
         let g = this.fg.append("g").attr("id", id).attr("fill", `${color}`).attr("transform", `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`)
+        // Tool Tip
+        g.append("title").text(metric)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 5).attr("ry", 5).attr("width", w).attr("height", h).style("opacity", 0.4)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", w).attr("height", 0.4 * h).style("opacity", 0.5)
         g.append("rect").attr("x", x).attr("y", y).attr("rx", 3).attr("ry", 3).attr("width", 0.3 * w).attr("height", h).style("opacity", 0.5)
@@ -100,7 +109,7 @@ export class Furniture {
 
         [w, h] = this.scaleDimensions(w, h, metric)
         let rotationPoint = `rotate(${rotation}, ${x + w / 2}, ${y + h / 2})`;
-        this.fg
+        let g = this.fg
             .append('g')
             .attr('id', id)
             .append("rect")
@@ -111,5 +120,7 @@ export class Furniture {
             .attr("transform", rotationPoint)
             .style("fill", color)
             .style("opacity", 0.6);
+        // Tool Tip
+        g.append("title").text(metric)
     }
 }
